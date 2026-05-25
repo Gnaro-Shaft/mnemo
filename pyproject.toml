@@ -1,0 +1,17 @@
+[project]
+name = "mnemo"
+version = "0.1.0"
+description = "Self-hosted RAG over your Obsidian vault"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[[project.authors]]
+name = "dGnaro"
+email = "68441165+Gnaro-Shaft@users.noreply.github.com"
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["services/*"]
