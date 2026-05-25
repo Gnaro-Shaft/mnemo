@@ -28,7 +28,7 @@ class OllamaEmbedder:
     Sync. Pour async, voir Phase 3 (auto-ingestion temps réel).
     """
 
-    def __init__(self, conf: Settings = settings, timeout: float = 60.0) -> None:
+    def __init__(self, conf: Settings = settings, timeout: float = 300.0) -> None:
         self.conf = conf
         self.client = httpx.Client(base_url=conf.ollama_url, timeout=timeout)
 
@@ -67,7 +67,7 @@ class OllamaEmbedder:
         return embeddings
 
     def embed_documents(
-        self, texts: Iterable[str], batch_size: int = 32
+        self, texts: Iterable[str], batch_size: int = 16
     ) -> list[list[float]]:
         """Embed une liste de documents (pour indexation).
 
