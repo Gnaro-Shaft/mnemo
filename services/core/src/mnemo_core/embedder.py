@@ -7,7 +7,7 @@ from typing import Self
 
 import httpx
 
-from mnemo_ingest.config import Settings, settings
+from mnemo_core.config import Settings, settings
 
 logger = logging.getLogger(__name__)
 

@@ -7,10 +7,10 @@ import time
 from datetime import datetime
 
 from mnemo_ingest.chunker import chunk_document
-from mnemo_ingest.config import settings
-from mnemo_ingest.embedder import OllamaEmbedder
-from mnemo_ingest.indexer import QdrantIndexer
-from mnemo_ingest.models import IngestResult
+from mnemo_core.config import settings
+from mnemo_core.embedder import OllamaEmbedder
+from mnemo_core.indexer import QdrantIndexer
+from mnemo_core.models import IngestResult
 from mnemo_ingest.parser import iter_documents
 
 

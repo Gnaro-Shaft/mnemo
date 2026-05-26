@@ -4,8 +4,8 @@ import re
 from collections.abc import Iterator
 from dataclasses import dataclass
 
-from mnemo_ingest.config import Settings, settings
-from mnemo_ingest.models import Chunk, Document
+from mnemo_core.config import Settings, settings
+from mnemo_core.models import Chunk, Document
 
 # Regex pour matcher un heading markdown au début d'une ligne (1 à 6 #)
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")

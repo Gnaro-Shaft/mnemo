@@ -14,8 +14,8 @@ from qdrant_client.models import (
     VectorParams,
 )
 
-from mnemo_ingest.config import Settings, settings
-from mnemo_ingest.models import Chunk
+from mnemo_core.config import Settings, settings
+from mnemo_core.models import Chunk
 
 logger = logging.getLogger(__name__)
 

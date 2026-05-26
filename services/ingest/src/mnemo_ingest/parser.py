@@ -6,7 +6,7 @@ from pathlib import Path
 
 import frontmatter
 
-from mnemo_ingest.models import Document
+from mnemo_core.models import Document
 
 logger = logging.getLogger(__name__)
 
