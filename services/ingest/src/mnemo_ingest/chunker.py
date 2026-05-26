@@ -98,8 +98,13 @@ def sliding_window(text: str, target_chars: int, overlap_chars: int) -> Iterator
     current_len = 0
 
     for para in paragraphs:
-        # Cas dégénéré : un seul paragraphe plus grand que target → split brutal
-        if len(para) > target_chars and not current:
+        # Cas dégénéré : un paragraphe seul plus grand que target → split brutal
+        # (même si on a déjà du contenu dans current, on flush puis on splitte)
+        if len(para) > target_chars:
+            if current:
+                yield "\n\n".join(current).strip()
+                current = []
+                current_len = 0
             yield from _split_by_chars(para, target_chars, overlap_chars)
             continue
 
@@ -160,7 +165,11 @@ def chunk_document(doc: Document, conf: Settings = settings) -> list[Chunk]:
     """
     target_chars = conf.chunk_target_tokens * 4
     overlap_chars = conf.chunk_overlap_tokens * 4
-    max_chars = target_chars * 2  # seuil au-delà duquel on sub-split
+    # Cap absolu : sous la context length du modèle (2048 tokens × 4 chars - marge pour
+    # le prefix "search_document: " et le heading_path inséré en tête).
+    # Au-delà → sub-split obligatoire via sliding window, sinon Ollama renvoie 400.
+    HARD_MAX_CHARS = 6800
+    max_chars = min(target_chars * 2, HARD_MAX_CHARS)
 
     chunks: list[Chunk] = []
     chunk_index = 0
