@@ -78,7 +78,10 @@ class OllamaEmbedder:
         if not texts:
             return []
 
-        prefixed = [DOCUMENT_PREFIX + t for t in texts]
+        if self.conf.use_embedding_prefixes:
+            prefixed = [DOCUMENT_PREFIX + t for t in texts]
+        else:
+            prefixed = list(texts)
         all_embeddings: list[list[float]] = []
 
         for i in range(0, len(prefixed), batch_size):
@@ -93,5 +96,6 @@ class OllamaEmbedder:
 
         Ajoute automatiquement le prefix 'search_query:'. Pas de batch (typiquement 1 query).
         """
-        result = self._embed([QUERY_PREFIX + text])
+        prefix = QUERY_PREFIX if self.conf.use_embedding_prefixes else ""
+        result = self._embed([prefix + text])
         return result[0]

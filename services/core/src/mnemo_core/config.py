@@ -34,6 +34,14 @@ class Settings(BaseSettings):
         default="nomic-embed-text",
         description="Nom du modèle Ollama pour les embeddings",
     )
+    use_embedding_prefixes: bool = Field(
+        default=True,
+        description=(
+            "Use Nomic-style 'search_document:'/'search_query:' prefixes. "
+            "Set False for models like bge-m3 / mxbai-embed-large that don't expect them."
+        ),
+    )
+
     embedding_dim: int = Field(
         default=768,
         description="Dimension des vecteurs (768 pour nomic-embed-text)",

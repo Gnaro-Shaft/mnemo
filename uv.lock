@@ -274,6 +274,16 @@ name = "mnemo"
 version = "0.1.0"
 source = { virtual = "." }
 
+[package.dev-dependencies]
+dev = [
+    { name = "pyyaml" },
+]
+
+[package.metadata]
+
+[package.metadata.requires-dev]
+dev = [{ name = "pyyaml", specifier = ">=6.0.3" }]
+
 [[package]]
 name = "mnemo-api"
 version = "0.1.0"

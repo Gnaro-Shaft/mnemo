@@ -1,0 +1,152 @@
+# Mnemo — Suite d'évaluation du retrieval RAG
+#
+# 20 queries réparties en 7 catégories, avec expected_paths basés sur les notes
+# RÉELLEMENT indexées dans Qdrant (collection vault).
+
+queries:
+
+  # ============ exact-noun (nom propre rare) ============
+  - id: what-is-mnemo
+    query: "qu'est-ce que Mnemo"
+    category: exact-noun
+    expected_paths:
+      - "02 - Projets/Mnemo/Mnemo - Vue d'ensemble.md"
+      - "02 - Projets/Mnemo/Mnemo - Phase 0 - Backup nightly.md"
+
+  - id: what-is-cendre
+    query: "le projet Cendré"
+    category: exact-noun
+    expected_paths:
+      - "02 - Projets/Cendré/_Index.md"
+      - "02 - Projets/Cendré/00 - Brief Créatif.md"
+      - "02 - Projets/Cendré/01 - Vision et Concept.md"
+
+  - id: what-is-aria
+    query: "ARIA agent IA personnel"
+    category: exact-noun
+    expected_paths:
+      - "02 - Projets/ARIA/ARIA - Vue d'ensemble.md"
+
+  # ============ concept-fr (concept en français) ============
+  - id: how-rag-works
+    query: "comment fonctionne le RAG"
+    category: concept-fr
+    expected_paths:
+      - "01 - Formation/Data Science/RAG — Retrieval Augmented Generation.md"
+      - "06 - MOCs/MOC - RAG.md"
+      - "01 - Formation/Data Science/RAG en n8n — Ingestion & Chat Workflows.md"
+
+  - id: agents-ia
+    query: "c'est quoi un agent IA"
+    category: concept-fr
+    expected_paths:
+      - "01 - Formation/Data Science/Agents IA — Ce que c'est vraiment.md"
+      - "06 - MOCs/MOC - Agents IA & LLM.md"
+
+  - id: composition-vs-heritage
+    query: "composition versus héritage en POO"
+    category: concept-fr
+    expected_paths:
+      - "05 - Concepts/Composition.md"
+      - "05 - Concepts/Héritage.md"
+
+  # ============ concept-tech (mots-clés EN) ============
+  - id: docker-compose
+    query: "Docker Compose"
+    category: concept-tech
+    expected_paths:
+      - "04 - Ressources/Cheat Sheet - Linux Ubuntu (homeserv01).md"
+      - "02 - Projets/Mnemo/Mnemo - Phase 0 - Backup nightly.md"
+
+  - id: pandas-chaining
+    query: "pandas method chaining"
+    category: concept-tech
+    expected_paths:
+      - "05 - Concepts/Method Chaining.md"
+      - "01 - Formation/Python/Pandas - Transformation et Pipelines.md"
+
+  - id: aws-s3
+    query: "AWS S3 et boto3"
+    category: concept-tech
+    expected_paths:
+      - "01 - Formation/Data Science/AWS S3 et Boto3 — Data Lake en pratique.md"
+      - "05 - Concepts/Data Lake.md"
+
+  # ============ workflow-fr (comment faire X) ============
+  - id: chunking-strategy
+    query: "stratégie de chunking pour RAG"
+    category: workflow-fr
+    expected_paths:
+      - "01 - Formation/Data Science/RAG — Retrieval Augmented Generation.md"
+
+  - id: backup-vault
+    query: "backup nightly du vault Obsidian"
+    category: workflow-fr
+    expected_paths:
+      - "02 - Projets/Mnemo/Mnemo - Phase 0 - Backup nightly.md"
+      - "02 - Projets/Mnemo/Mnemo - Vue d'ensemble.md"
+
+  - id: prompting-cpf
+    query: "framework CPF pour prompting LLM"
+    category: workflow-fr
+    expected_paths:
+      - "01 - Formation/Data Science/Prompting — Framework CPF.md"
+
+  # ============ sigle (acronyme court) ============
+  - id: oop-python
+    query: "OOP en Python"
+    category: sigle
+    expected_paths:
+      - "01 - Formation/Python/Python - OOP.md"
+      - "05 - Concepts/Composition.md"
+      - "05 - Concepts/Héritage.md"
+
+  - id: rag-acronym
+    query: "RAG"
+    category: sigle
+    expected_paths:
+      - "01 - Formation/Data Science/RAG — Retrieval Augmented Generation.md"
+      - "06 - MOCs/MOC - RAG.md"
+
+  - id: api-rest
+    query: "REST API"
+    category: sigle
+    expected_paths:
+      - "05 - Concepts/REST API.md"
+      - "01 - Formation/Data Science/APIs avec Python — requests.md"
+
+  # ============ personal (référence personnelle) ============
+  - id: session-may-13-j5
+    query: "session formation J5 data transformation"
+    category: personal
+    expected_paths:
+      - "Sessions/2026-05-13 - Formation Fullstack J5 - Data Transformation et Pipelines.md"
+
+  - id: bot-trading
+    query: "mon bot de trading v9"
+    category: personal
+    expected_paths:
+      - "02 - Projets/Bot de Trading/V9/Bot Trading V9 - Vue d'ensemble.md"
+      - "02 - Projets/Bot de Trading/V9/Bot Trading - CLAUDE.md (transition ML).md"
+
+  - id: formation-fullstack
+    query: "ma formation fullstack Jedha"
+    category: personal
+    expected_paths:
+      - "02 - Projets/Formation Fullstack/Formation Fullstack - Vue d'ensemble.md"
+
+  # ============ mixed-lang (FR/EN typique) ============
+  - id: oop-heritage-detail
+    query: "orienté objet en Python avec héritage et composition"
+    category: mixed-lang
+    expected_paths:
+      - "05 - Concepts/Composition.md"
+      - "05 - Concepts/Héritage.md"
+      - "01 - Formation/Python/Python - OOP.md"
+
+  - id: embeddings-vector-store
+    query: "embeddings et vector store pour RAG"
+    category: mixed-lang
+    expected_paths:
+      - "01 - Formation/Data Science/RAG — Retrieval Augmented Generation.md"
+      - "06 - MOCs/MOC - RAG.md"
